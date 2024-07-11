@@ -1,0 +1,156 @@
+<!-- <div class="container">
+    <h1>{{name}}-space</h1>
+    <div class="open">
+        <div class="inner" [routerLink]="['form-module']">
+            <h3>
+                {{name}} Seats
+            </h3>
+            <h3>
+                <span>{{availableSeats}}/100</span>
+            </h3>
+        </div>
+        <mat-progress-bar mode="determinate" value={{availableSeats}}></mat-progress-bar>
+    </div>
+    <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
+
+        <p>
+            <label class="optional" for="price">Price: </label>
+            <input type="number" id="firstname" name="price" formControlName="price">
+        </p>
+
+        <h2>Services</h2>
+
+        <p>
+            <input type="checkbox" id="cab" name="cab" formControlName="cab" (click)="cabServiceStatus()">
+            <label for="lastname">Cab</label>
+        </p>
+        <p *ngIf="cabService">
+            <label class="optional" for="wifi">Price/Km: </label>
+            <input type="number" id="cabPrice" name="cabPrice" formControlName="cabPrice">
+        </p>
+
+        <p>
+            <input type="checkbox" id="printer" name="printer" formControlName="printer" (click)="printerServiceStatus()">
+            <label for="printer">Printer </label>
+        </p>
+        <p *ngIf="printerService">
+            <label class="optional" for="wifi">Price/Page: </label>
+            <input type="number" id="printerPrice" name="printerPrice" formControlName="printerPrice">
+        </p>
+
+        <p>
+            <input type="checkbox" id="wifi" name="wifi" formControlName="wifi">
+            <label for="printer">Wifi </label>
+        </p>
+
+
+        <p>
+            <input type="checkbox" name="teaCoffee" id="teaCoffee" formControlName="teaCoffee">
+            <label for="teaCoffee">TeaCoffe</label>
+        </p>
+        <p>
+            <input type="checkbox" name="service1" id="service1" formControlName="service1">
+            <label for="service1">Service1</label>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+    </form>
+</div> -->
+
+
+
+<div class="container">
+    <h1>{{name}}-space</h1>
+    
+    <div class="open-seats">
+      <div class="inner">
+        <h3>{{name}} Seats</h3>
+        <h3><span>{{availableSeats}}/100</span></h3>
+      </div>
+      <mat-progress-bar mode="determinate" value="{{availableSeats}}"></mat-progress-bar>
+    </div>
+    
+    <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" formControlName="price">
+      </div>
+  
+      <h2>Services</h2>
+      <div class="services-grid">
+        <!-- <div class="service-item">
+          <label class="toggle">
+            <input type="checkbox" formControlName="cab" (change)="cabServiceStatus()">
+            <span class="slider"></span>
+            <span class="label-text">Cab</span>
+          </label>
+          <input *ngIf="cabService" type="number" placeholder="Price/Km" formControlName="cabPrice">
+        </div>
+  
+        <div class="service-item">
+          <label class="toggle">
+            <input type="checkbox" formControlName="printer" (change)="printerServiceStatus()">
+            <span class="slider"></span>
+            <span class="label-text">Printer</span>
+          </label>
+          <input *ngIf="printerService" type="number" placeholder="Price/Page" formControlName="printerPrice">
+        </div> -->
+  
+        <!-- <div class="services-grid"> -->
+            <div class="service-item">
+              <label class="toggle">
+                <input type="checkbox" formControlName="cab" (change)="cabServiceStatus()">
+                <span class="slider"></span>
+                <span class="label-text">Cab</span>
+              </label>
+              <div *ngIf="cabService" class="price-input">
+                <label for="cabPrice">Price/Km:</label>
+                <input type="number" id="cabPrice" formControlName="cabPrice">
+              </div>
+            </div>
+          
+            <div class="service-item">
+              <label class="toggle">
+                <input type="checkbox" formControlName="printer" (change)="printerServiceStatus()">
+                <span class="slider"></span>
+                <span class="label-text">Printer</span>
+              </label>
+              <div *ngIf="printerService" class="price-input">
+                <label for="printerPrice">Price/Page:</label>
+                <input type="number" id="printerPrice" formControlName="printerPrice">
+              </div>
+            </div>
+          
+            <!-- Other service items remain the same -->
+          <!-- </div> -->
+        <div class="service-item">
+          <label class="toggle">
+            <input type="checkbox" formControlName="wifi">
+            <span class="slider"></span>
+            <span class="label-text">Wifi</span>
+          </label>
+        </div>
+  
+        <div class="service-item">
+          <label class="toggle">
+            <input type="checkbox" formControlName="teaCoffee">
+            <span class="slider"></span>
+            <span class="label-text">Tea/Coffee</span>
+          </label>
+        </div>
+  
+        <div class="service-item">
+          <label class="toggle">
+            <input type="checkbox" formControlName="service1">
+            <span class="slider"></span>
+            <span class="label-text">Service1</span>
+          </label>
+        </div>
+      </div>
+  
+      <button type="submit">Submit</button>
+    </form>
+  </div>

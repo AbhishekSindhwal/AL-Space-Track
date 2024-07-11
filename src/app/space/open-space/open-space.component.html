@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Open-space</h1>
+    <div class="open">
+        <div class="inner" [routerLink]="['/form-module','Open','70']">
+            <h3>
+                Open Seats
+            </h3>
+            <h3>
+                <span>70/100</span>
+            </h3>
+        </div>
+
+        <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+    </div>
+    <div class="dedicated">
+        <div class="inner" [routerLink]="['/form-module','Dedicated','50']">
+            <h3>
+                Dedicated Seats
+            </h3>
+            <h3>
+                <span>50/100</span>
+            </h3>
+        </div>
+        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+    </div>
+</div>

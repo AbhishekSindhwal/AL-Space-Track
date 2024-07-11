@@ -1,0 +1,17 @@
+.inner {
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.open,.dedicated{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: #fff;
+}
+.container{
+    margin-left: 30px;
+}

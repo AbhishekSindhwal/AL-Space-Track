@@ -1,13 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
-  title = 'Al-Space-Track';
+  title = 'spaceManagement';
+  sidebarActive=true;
+  openSpace=true;
+  openSpaceActive=true;
+  
+
+  
+
+  handleOpenSpace(){
+    this.openSpace=true;
+    this.openSpaceActive=true;
+  }
+  handleCabinSpace(){
+    this.openSpace=false;
+    this.openSpaceActive=false;
+  }
 }

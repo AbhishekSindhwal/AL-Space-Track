@@ -1,0 +1,19 @@
+.inner {
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.two,
+.five,
+.ten,
+.fifteen {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: #fff;
+}
+
