@@ -6,11 +6,11 @@
                 Open Seats
             </h3>
             <h3>
-                <span>70/100</span>
+                <span>{{allocated_open_seats}}/{{total_open_seats}}</span>
             </h3>
         </div>
 
-        <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" value="{{allocated_open_seats}}"></mat-progress-bar>
     </div>
     <div class="dedicated">
         <div class="inner" [routerLink]="['/form-module','Dedicated','50']">
@@ -18,9 +18,9 @@
                 Dedicated Seats
             </h3>
             <h3>
-                <span>50/100</span>
+                <span>{{allocated_dedicated_seats}}/{{total_dedicated_seats}}</span>
             </h3>
         </div>
-        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" value="{{allocated_dedicated_seats}}"></mat-progress-bar>
     </div>
 </div>

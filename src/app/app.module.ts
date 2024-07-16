@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { SpaceModule } from './space/space.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AppRoutingModule } from './app.routes';
-
+import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,16 +15,15 @@ import { AppRoutingModule } from './app.routes';
   imports: [
     BrowserModule,
     SpaceModule,
-    // RouterOutlet,
-    // RouterLink,
-    // RouterLinkActive,
     AppRoutingModule,
+    HttpClientModule
   ],
   exports:[
    
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

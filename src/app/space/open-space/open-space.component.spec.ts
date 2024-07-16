@@ -17,6 +17,8 @@ describe('OpenSpaceComponent', () => {
     fixture.detectChanges();
   });
 
+
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
