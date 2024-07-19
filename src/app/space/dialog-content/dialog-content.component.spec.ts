@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MeetingSpaceComponent } from './meeting-space.component';
+import { DialogContentComponent } from './dialog-content.component';
 
-describe('MeetingSpaceComponent', () => {
-  let component: MeetingSpaceComponent;
-  let fixture: ComponentFixture<MeetingSpaceComponent>;
+describe('DialogContentComponent', () => {
+  let component: DialogContentComponent;
+  let fixture: ComponentFixture<DialogContentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MeetingSpaceComponent]
+      imports: [DialogContentComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MeetingSpaceComponent);
+    fixture = TestBed.createComponent(DialogContentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

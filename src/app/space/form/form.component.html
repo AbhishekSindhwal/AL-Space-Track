@@ -1,9 +1,9 @@
 
 <div class="container">
 
-    <h1>{{name}}-space</h1>
+    <h1>{{name | uppercase}} </h1>
 
-    <div class="services">
+    <!-- <div class="services">
       <h3>Current Services</h3>
       <div class="services">
         <div>
@@ -16,14 +16,15 @@
               <h3>Printer Price: {{printer_price}}</h3>
           </div>
       </div>
-  </div>
+  </div> -->
     
     <div class="open-seats">
       <div class="inner">
-        <h3>{{name}} Seats</h3>
-        <h3><span>{{availableSeats}}/100</span></h3>
+        <h3>{{name |uppercase  }} SEATS</h3>
+        <h3><span>0/{{availableSeats}}</span></h3>
       </div>
-      <mat-progress-bar mode="determinate" value="{{availableSeats}}"></mat-progress-bar>
+      
+      <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
     </div>
     
     <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
@@ -32,27 +33,29 @@
         <input type="number" id="price" formControlName="price">
       </div>
   
+
+
       <h2>Services</h2>
       <div class="services-grid">
-        <!-- <div class="service-item">
+        <div class="service-item" *ngFor="let element of services;let i=index">
           <label class="toggle">
-            <input type="checkbox" formControlName="cab" (change)="cabServiceStatus()">
+            <input type="checkbox" formControlName="cab" (change)="cabServiceStatus(i)">
             <span class="slider"></span>
-            <span class="label-text">Cab</span>
           </label>
-          <input *ngIf="cabService" type="number" placeholder="Price/Km" formControlName="cabPrice">
+          <span class="label-text">{{element.Name_}}</span>
+          <div *ngIf="array[i]" class="price-input">
+            <label for="cabPrice">Price/Km:</label>
+            <input type="number" id="cabPrice" formControlName="cabPrice">
+          </div>
         </div>
-  
-        <div class="service-item">
-          <label class="toggle">
-            <input type="checkbox" formControlName="printer" (change)="printerServiceStatus()">
-            <span class="slider"></span>
-            <span class="label-text">Printer</span>
-          </label>
-          <input *ngIf="printerService" type="number" placeholder="Price/Page" formControlName="printerPrice">
-        </div> -->
-  
-        <!-- <div class="services-grid"> -->
+
+
+
+      </div>
+      <!-- <div class="services-grid">
+      
+
+
             <div class="service-item">
               <label class="toggle">
                 <input type="checkbox" formControlName="cab" (change)="cabServiceStatus()">
@@ -76,9 +79,7 @@
                 <input type="number" id="printerPrice" formControlName="printerPrice">
               </div>
             </div>
-          
-            <!-- Other service items remain the same -->
-          <!-- </div> -->
+        
         <div class="service-item">
           <label class="toggle">
             <input type="checkbox" formControlName="wifi">
@@ -102,7 +103,7 @@
             <span class="label-text">Service1</span>
           </label>
         </div>
-      </div>
+      </div> -->
   
       <button type="submit">Submit</button>
     </form>

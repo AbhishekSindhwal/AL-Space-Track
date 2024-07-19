@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZoneOptions, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-dialog-box',
-  templateUrl: './dialog-box.component.html',
-  styleUrl: './dialog-box.component.css'
+  selector: 'app-dialog-content',
+  templateUrl: './dialog-content.component.html',
+  styleUrl: './dialog-content.component.css'
 })
-export class DialogBoxComponent {
-  serviceForm!: FormGroup;
+export class DialogContentComponent implements OnInit {
+
+
+  cabinForm!: FormGroup;
   submitError: string = '';
   submitSuccess: boolean = false;
 
@@ -17,30 +19,22 @@ export class DialogBoxComponent {
   ) { }
 
   ngOnInit(): void {
-    this.initForm();
-  }
-  unitOptions: string[] = ['HR', 'WEEKLY', 'MIN', 'EACH', 'MONTHLY'];
-  initForm(): void {
-    this.serviceForm = this.fb.group({
-      serviceName: ['', Validators.required],
-      serviceType: ['', Validators.required],
-      desc: ['', Validators.required],
-      unit: this.fb.group({
-        selectedUnit: ['', Validators.required]
-      }),
+    this.cabinForm = this.fb.group({
+      name: ['', Validators.required],
+      noOfSeat: ['', [Validators.required, Validators.min(1)]],
       price: ['', [Validators.required, Validators.min(0)]],
       code: ['', Validators.required]
     });
   }
 
-  onSubmit(): void {
-    if (this.serviceForm.valid) {
-      this.apiService.addService(this.serviceForm.value).subscribe({
+  onSubmit() {
+    if (this.cabinForm.valid) {
+      this.apiService.addCabin(this.cabinForm.value).subscribe({
         next: (response) => {
           console.log('Cabin created successfully:', response);
           this.submitSuccess = true;
           this.submitError = '';
-          this.serviceForm.reset(); // Reset the form after successful submission
+          this.cabinForm.reset(); // Reset the form after successful submission
         },
         error: (error) => {
           console.error('Error creating cabin:', error);
@@ -48,7 +42,7 @@ export class DialogBoxComponent {
           this.submitSuccess = false;
         }
       });
-    }  else {
+    } else {
       console.log("Somwthing went wrong!!")
     }
   }

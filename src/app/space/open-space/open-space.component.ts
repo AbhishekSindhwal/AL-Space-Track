@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,inject} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 // import {  Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogContentComponent } from '../dialog-content/dialog-content.component';
 
 
 @Component({
@@ -16,6 +18,25 @@ export class OpenSpaceComponent  implements OnInit {
     private apiService:ApiService
   ){}
 
+
+
+
+  
+  readonly dialog = inject(MatDialog);
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentComponent,{
+      height: '400px',
+      width: '600px',
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+
   total_open_seats:number=0
  allocated_open_seats:number=0
 
@@ -26,16 +47,12 @@ export class OpenSpaceComponent  implements OnInit {
   ngOnInit(): void {
       this.apiService.getData().subscribe(response=>{
         this.data=response
-        console.log(response[0])
-        this.total_open_seats=response[0].total_seats
-        this.allocated_open_seats=response[0].allocated_seats
-        this.total_dedicated_seats=response[1].total_seats
-        this.allocated_dedicated_seats=response[1].allocated_seats
       });
   }
-
-
- 
-
+  handleClick(id:any)
+  {
+    console.log(id);
+    this.apiService.deleteCabin(id).subscribe();
+  }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
 
@@ -12,7 +12,7 @@ export class FormComponent implements OnInit {
 
 
   constructor(private _Activatedroute: ActivatedRoute,
-    private dataService: ApiService
+    private apiService: ApiService
   ) { }
 
   availableSeat: number = 0;
@@ -28,42 +28,50 @@ export class FormComponent implements OnInit {
     service1: new FormControl(false),
   })
 
+  serviceForm = new FormGroup({
+    price:new FormControl(''),
+    cabinId:new FormControl(''),
+    services:new FormGroup({
+      serviceId:new FormArray([
+
+      ]),
+      price:new FormArray([
+
+      ]),
+      units:new FormArray([
+
+      ])
+    })
+  })
+ 
   name = this._Activatedroute.snapshot.paramMap.get("name");
   availableSeats = this._Activatedroute.snapshot.paramMap.get("availableSeats");
-
+  
   cab_price: number = 0
   printer_price: number = 0
   seat_price: number = 0
+  services:any
+  array:number[]=[]
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe(response => {
-      console.log(response[0])
-      if (this.name == 'Open') {
-        this.cab_price = response[0].cab_price
-        this.printer_price = response[0].printer_price
-        this.seat_price = response[0].seat_price
-      } else {
-        this.cab_price = response[1].cab_price
-        this.printer_price = response[1].printer_price
-        this.seat_price = response[1].seat_price
-      }
+    this.apiService.getService().subscribe(response => {
+      this.services=response
+      this.array = new Array(this.services.length).fill(0);
+      console.log(this.services)
     });
   }
 
   cabService: boolean = false
   printerService: boolean = false
 
-  cabServiceStatus() {
-    this.cabService = !this.cabService
-  }
-
-  printerServiceStatus() {
-    this.printerService = !this.printerService
+  cabServiceStatus(index:number) {
+    this.array[index] = this.array[index] === 0 ? 1 : 0;
   }
 
   onSubmit() {
     const data = this.ownerForm.value
-    console.log(this.ownerForm.value)
+    console.log(this.ownerForm.value);
+    console.log(this.serviceForm.value);
     const senddata = {
       id: Math.floor((Math.random() * 1000) % 100),
       seatType: this.name,
@@ -76,13 +84,5 @@ export class FormComponent implements OnInit {
       tea: data.teaCoffee,
       service1: data.service1
     }
-    this.dataService.saveFormData(senddata).subscribe({
-      next: (res) => {
-        console.log("form data has been updated successfully", res)
-      },
-      error: (err) => {
-        console.log("Invalid values ", err)
-      }
-    })
   }
 }

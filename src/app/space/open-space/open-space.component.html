@@ -1,26 +1,26 @@
 <div class="container">
-    <h1>Open-space</h1>
-    <div class="open">
-        <div class="inner" [routerLink]="['/form-module','Open','70']">
-            <h3>
-                Open Seats
+    <h1> Available Spaces</h1>
+    <div class="open" *ngFor="let element of data">
+        <div class="inner" >
+            <h3 class="btn" [routerLink]="['/form-module',element.Name_,element.No_Of_Seats]">
+                {{element.Name_|uppercase }}
             </h3>
             <h3>
-                <span>{{allocated_open_seats}}/{{total_open_seats}}</span>
+                <button class="button" (click)="handleClick(element.Id)">Delete</button>
+                <span>{{element.No_Of_Seats}}</span>
+                <!-- {{allocated_open_seats}}/ -->
             </h3>
         </div>
-
-        <mat-progress-bar mode="determinate" value="{{allocated_open_seats}}"></mat-progress-bar>
+        <!-- <div *ngIf="element.Name_=='Open Space'">
+            <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+        </div> -->
     </div>
     <div class="dedicated">
-        <div class="inner" [routerLink]="['/form-module','Dedicated','50']">
-            <h3>
-                Dedicated Seats
-            </h3>
-            <h3>
-                <span>{{allocated_dedicated_seats}}/{{total_dedicated_seats}}</span>
+        <div>
+            <h3 mat-button (click)="openDialog()">
+                <!-- <button >Add Service</button> -->
+                 Add Space
             </h3>
         </div>
-        <mat-progress-bar mode="determinate" value="{{allocated_dedicated_seats}}"></mat-progress-bar>
     </div>
 </div>

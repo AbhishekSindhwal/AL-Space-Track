@@ -1,51 +1,27 @@
 <div class="container">
-    <h1>Private-space</h1>
-    <div class="two">
+    <h1>Available Services</h1>
+    <div class="open" *ngFor="let element of services">
         <div class="inner">
-            <h3>
-                Two Seater
+            <h3 class="btn" [routerLink]="['/form-module','Open','70']">
+                {{element.Name_}}
             </h3>
             <h3>
-                <span>08/10</span>
+
+                <button class="button" (click)="handleClick(element.Id)">Delete</button>
+                <span>{{element.Price}}</span>
+                <!-- {{allocated_open_seats}}/ -->
             </h3>
         </div>
-        <mat-progress-bar mode="determinate" value="80"></mat-progress-bar>
+
+
+
     </div>
-    <div class="five">
-        <div class="inner">
-            <h3>
-                Five Seater
-            </h3>
-            <h3>
-                <span>04/10</span>
+    <div class="dedicated">
+        <div>
+            <h3 mat-button (click)="openDialog()">
+                <!-- <button >Add Service</button> -->
+                Add Service
             </h3>
         </div>
-        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-    </div>
-    <div class="ten">
-        <div class="inner">
-            <h3>
-                Ten Seater
-            </h3>
-            <h3>
-                <span>05/10</span>
-            </h3>
-        </div>
-        <mat-progress-bar mode="determinate" value="05"></mat-progress-bar>
-    </div>
-    <div class="fifteen">
-        <div class="inner">
-            <h3>
-                Fifteen Seater
-            </h3>
-            <h3>
-                <span>06/10</span>
-            </h3>
-        </div>
-        <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
     </div>
 </div>
-
-
-
-
