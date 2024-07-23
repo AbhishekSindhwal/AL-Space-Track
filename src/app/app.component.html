@@ -1,11 +1,11 @@
 <div class="container " [ngClass]="{sidebarActive:sidebarActive}">
   <div class="sidebar">
       <div class="sidemenu">
-          <a href="" id="">Dashboard</a>
-          <a href="" id="">Users</a>
-          <a href="" id="">Products</a>
-          <a href="" id="">Pricing</a>
-          <a href="" id="">About</a>
+          <a routerLink="/home">Dashboard</a>
+          <a routerLink="/cabins" id="">Cabins</a>
+          <a routerLink="/services" id="">Services</a>
+          <!-- <a href="" id="">Pricing</a>
+          <a href="" id="">About</a> -->
       </div>
   </div>
   <div class="content">
@@ -21,9 +21,9 @@
               Title
           </div>
           <div class="menu">
-              <a href="#" id="">Home</a>
+              <a routerLink="/home" id="">Home</a>
+              <a routerLink="/services" id="">Services</a>
               <a href="#" id="">About</a>
-              <a href="#" id="">Services</a>
               <a href="#" id="">Logout</a>
           </div>
       </div>
@@ -31,8 +31,6 @@
         <div >
             <h1>{{ data| json }}</h1>
           </div>
-          
-
           <router-outlet></router-outlet>
       </div>
   
