@@ -15,14 +15,14 @@
   <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" id="price" formControlName="price">
+      <!-- <input type="number" id="price" formControlName="price"> -->
     </div>
 
     <h2>Services</h2>
     <div class="services-grid">
       <div class="service-item" *ngFor="let element of services;let i=index">
         <label class="toggle">
-          <input type="checkbox" formControlName="cab" (change)="cabServiceStatus(i)">
+          <input type="checkbox"  (change)="cabServiceStatus(i)">
           <span class="slider"></span>
         </label>
         <span class="label-text">{{element.Name_}}</span>

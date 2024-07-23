@@ -64,12 +64,14 @@ export class FormComponent implements OnInit {
 
   initializeForm(): void {
     console.log(this.services);
+    if(this.services?.length){
     this.services.forEach((service:any, index:any) => {
       // Initialize array values
      // this.array[index] = false;
       // Add a form control for each service
       this.ownerForm.addControl(service.Name_ , new FormControl(false));
     });
+  }
   }
 
   cabServiceStatus(index:number) {
