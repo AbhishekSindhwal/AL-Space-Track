@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-box',
@@ -13,7 +14,8 @@ export class DialogBoxComponent {
   submitSuccess: boolean = false;
 
   constructor(private fb: FormBuilder,
-    private apiService: ApiService
+    private apiService: ApiService,
+    public diaLogRef:MatDialogRef<DialogBoxComponent>
   ) { }
 
   ngOnInit(): void {
@@ -51,5 +53,6 @@ export class DialogBoxComponent {
     }  else {
       console.log("Somwthing went wrong!!")
     }
+    this.diaLogRef.close();
   }
 }

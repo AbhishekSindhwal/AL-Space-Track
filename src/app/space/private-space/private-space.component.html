@@ -7,8 +7,10 @@
             </h3>
             <h3>
 
-                <button class="button" (click)="handleClick(element.Id)">Delete</button>
                 <span>{{element.Price}}</span>
+                <button (click)="handleClick(element.Id)" mat-fab aria-label="Example icon button with a delete icon">
+                    <mat-icon>delete</mat-icon>
+                  </button>
                 <!-- {{allocated_open_seats}}/ -->
             </h3>
         </div>

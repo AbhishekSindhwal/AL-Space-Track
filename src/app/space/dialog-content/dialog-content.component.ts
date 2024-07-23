@@ -1,6 +1,7 @@
 import { Component, NgZoneOptions, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-content',
@@ -15,7 +16,8 @@ export class DialogContentComponent implements OnInit {
   submitSuccess: boolean = false;
 
   constructor(private fb: FormBuilder,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private dialogRef:MatDialogRef<DialogContentComponent>
   ) { }
 
   ngOnInit(): void {
@@ -45,5 +47,6 @@ export class DialogContentComponent implements OnInit {
     } else {
       console.log("Somwthing went wrong!!")
     }
+     this.dialogRef.close();
   }
 }

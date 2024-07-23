@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { DeleteDialogContentComponent } from './delete-dialog-content/delete-dialog-content.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -21,7 +24,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormComponent,
     HomeComponentComponent,
     DialogContentComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    DeleteDialogContentComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +33,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule, 
     ReactiveFormsModule ,
     MatDialogModule,
+    MatButtonModule,
+    MatIconModule
 
   ],
   exports:[

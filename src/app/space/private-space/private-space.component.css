@@ -28,8 +28,10 @@ h1 {
     cursor: pointer;
     
 }
-
-.button{
+button{
+    margin-left: 20px;
+}
+/* .button{
     width: 80px;
     background-color: red;
     height: 40px;
@@ -37,6 +39,6 @@ h1 {
     font-size:medium;
     border: 0;
     color: white;
-    margin-right: 20px;
+    margin:0px 20px;
     cursor: pointer;
-}
+} */

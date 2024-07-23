@@ -3,6 +3,7 @@ import { Component, OnInit ,inject } from '@angular/core';
 import { ApiService } from '../../api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { DeleteDialogContentComponent } from '../delete-dialog-content/delete-dialog-content.component';
 @Component({
   selector: 'app-private-space',
   // standalone: true,
@@ -11,7 +12,9 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
   styleUrl: './private-space.component.css'
 })
 export class PrivateSpaceComponent implements OnInit {
-  constructor(private apiService:ApiService){
+  constructor(private apiService:ApiService,
+    public dialog1: MatDialog
+  ){
 
   }
 
@@ -33,7 +36,11 @@ export class PrivateSpaceComponent implements OnInit {
   handleClick(id:any)
   {
     console.log(id);
-    this.apiService.deleteService(id).subscribe();
+   // this.apiService.deleteService(id).subscribe();
+    this.dialog1.open(DeleteDialogContentComponent, {
+      width: '250px',
+      data: { name: 'Service',id:id } // Pass data to dialog if needed
+    });
   }
 
 
@@ -41,12 +48,7 @@ export class PrivateSpaceComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getService().subscribe(response=>{
       this.services=response
-      // console.log(this.services);
-      // console.log(response[0])
-      // this.total_open_seats=response[0].total_seats
-      // this.allocated_open_seats=response[0].allocated_seats
-      // this.total_dedicated_seats=response[1].total_seats
-      // this.allocated_dedicated_seats=response[1].allocated_seats
+
     });
   }
 
