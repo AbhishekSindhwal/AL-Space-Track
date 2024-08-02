@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Available Spaces For Booking</h1>
+    <div class="open" *ngFor="let element of data">
+        <div class="inner">
+            <h3 class="btn" [routerLink]="['/room',element.Name_,element.No_Of_Seats,element.Id,element.BookedPrice]">
+                {{element.Name_|uppercase }}
+            </h3>
+            <h3>
+                <span>{{ element.No_Of_Seats }}</span>
+            </h3>
+        </div>
+    </div>
+</div>

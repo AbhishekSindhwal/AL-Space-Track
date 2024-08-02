@@ -24,7 +24,7 @@ label {
 }
   
 /* Style input fields */
-input,
+input,select,
 textarea {
     width: 100%;
     padding: 8px;
@@ -34,7 +34,8 @@ textarea {
 }
   
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     outline: none;
     border-color: #4a90e2;
     box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
@@ -68,6 +69,11 @@ button[type="submit"]:disabled {
 .radio-input{
     width: 20px;
 }
+.error {
+    color: red;
+    font-size: 0.8em;
+}
+
   
 /* Responsive design for smaller screens */
 @media (max-width: 480px) {

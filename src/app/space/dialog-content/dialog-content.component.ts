@@ -2,6 +2,7 @@ import { Component, NgZoneOptions, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-dialog-content',

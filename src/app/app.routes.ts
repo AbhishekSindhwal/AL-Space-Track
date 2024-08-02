@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponentComponent } from './space/home-component/home-component.component';
 import { PrivateSpaceComponent } from './space/private-space/private-space.component';
 import { OpenSpaceComponent } from './space/open-space/open-space.component';
+import { RoomsComponent } from './user/rooms/rooms.component';
+import { RoomComponent } from './user/room/room.component';
 
 export const routes: Routes = [
     {
@@ -11,7 +13,7 @@ export const routes: Routes = [
         component:HomeComponentComponent
     },
     {
-        path:'form-module/:name/:availableSeats',
+        path:'form-module/:name/:availableSeats/:id',
         component:FormComponent
     },
      {
@@ -25,6 +27,14 @@ export const routes: Routes = [
     {
         path:'cabins',
         component:OpenSpaceComponent
+    },
+    {
+        path:'user-spaces',
+        component:RoomsComponent
+    },
+    {
+        path:'room/:name/:availableSeats/:id/:bookedPrice',
+        component:RoomComponent
     }
 ];
 

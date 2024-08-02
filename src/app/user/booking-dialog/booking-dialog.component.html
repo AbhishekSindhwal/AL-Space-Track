@@ -1,0 +1,15 @@
+<h1>Book Space</h1>
+<form [formGroup]="cabinForm" >
+ <div>
+   <label for="name">Name:</label>
+   <input id="name" type="text" formControlName="name">
+ </div>
+
+ <div>
+   <label for="phNumber">Number of Seats:</label>
+   <input id="phNumber" type="number" formControlName="phNumber">
+ </div>
+
+
+ <button type="submit" [disabled]="cabinForm.invalid">Submit</button>
+</form>

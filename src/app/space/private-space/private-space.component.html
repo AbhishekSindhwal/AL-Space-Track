@@ -2,15 +2,15 @@
     <h1>Available Services</h1>
     <div class="open" *ngFor="let element of services">
         <div class="inner">
-            <h3 class="btn" [routerLink]="['/form-module','Open','70']">
+            <h3 class="btn">
                 {{element.Name_}}
             </h3>
             <h3>
 
                 <span>{{element.Price}}</span>
-                <button (click)="handleClick(element.Id)" mat-fab aria-label="Example icon button with a delete icon">
-                    <mat-icon>delete</mat-icon>
-                  </button>
+               
+                    <mat-icon class="btn" (click)="handleClick(element.Id)" >delete</mat-icon>
+                 
                 <!-- {{allocated_open_seats}}/ -->
             </h3>
         </div>

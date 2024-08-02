@@ -17,7 +17,7 @@ import { DeleteDialogContentComponent } from '../delete-dialog-content/delete-di
 export class OpenSpaceComponent  implements OnInit {
   constructor(private router:Router,
     private apiService:ApiService,
-    public dialog1: MatDialog
+    public dialog1: MatDialog,
   ){}
   
   readonly dialog = inject(MatDialog);
@@ -28,7 +28,6 @@ export class OpenSpaceComponent  implements OnInit {
       width: '600px',
     }
     );
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -45,7 +44,13 @@ export class OpenSpaceComponent  implements OnInit {
   ngOnInit(): void {
       this.apiService.getData().subscribe(response=>{
         this.data=response
-      });
+    });
+    
+    this.apiService.cabinSubject$.subscribe(()=>{
+      this.apiService.getData().subscribe(response=>{
+        this.data=response;
+      })}
+    )
   }
 
   handleClick(id:any)

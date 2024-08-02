@@ -26,11 +26,12 @@ h1 {
 }
 .btn{
     cursor: pointer;
+    margin-left: 20px;
     
 }
-button{
+/* button{
     margin-left: 20px;
-}
+} */
 /* .button{
     width: 80px;
     background-color: red;

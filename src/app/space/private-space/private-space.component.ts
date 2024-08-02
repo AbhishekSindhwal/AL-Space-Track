@@ -4,6 +4,7 @@ import { ApiService } from '../../api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { DeleteDialogContentComponent } from '../delete-dialog-content/delete-dialog-content.component';
+
 @Component({
   selector: 'app-private-space',
   // standalone: true,
@@ -20,7 +21,6 @@ export class PrivateSpaceComponent implements OnInit {
 
 
   readonly dialog = inject(MatDialog);
-
   openDialog() {
     const dialogRef = this.dialog.open(DialogBoxComponent,{
       height: '800px',
@@ -48,8 +48,14 @@ export class PrivateSpaceComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getService().subscribe(response=>{
       this.services=response
-
     });
+  
+    this.apiService.subject34$.subscribe(()=>{
+      this.apiService.getService().subscribe(response=>{
+        this.services=response
+      }
+      )
+    })
   }
 
 }

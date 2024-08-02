@@ -6,15 +6,18 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AppRoutingModule } from './app.routes';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
+import { RoomsComponent } from './user/rooms/rooms.component';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
-    SpaceModule,
+    // SpaceModule,
     AppRoutingModule,
     HttpClientModule
   ],
