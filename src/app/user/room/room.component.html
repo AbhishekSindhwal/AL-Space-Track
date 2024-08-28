@@ -3,7 +3,6 @@
   <div class="open-seats">
     <div class="inner">
       <h3>{{name |uppercase }} SEATS</h3>
-
       <h3><span>{{availableSeats}}</span></h3>
       <h3>{{cabinPrice}}</h3>
     </div>
@@ -20,7 +19,7 @@
   <div class="services-grid">
     <div class="service-item" *ngFor="let element of masterServices;let i=index">
       <label class="toggle">
-        <input type="checkbox"  [checked]="array[i]" (change)="cabServiceStatus(i)">
+        <input type="checkbox" [checked]="array[i]" (change)="toggleCabService(i)">
         <span class="slider"></span>
       </label>
       <div class="item">
@@ -34,10 +33,10 @@
       <button class="btn" (click)="updatedPrice(numberOfDaysInput.value)">Check Price</button>
     </div>
     <div>
-      <h1>Total Price: {{price}}</h1>
+      <h1>Total Price: {{price | number : '1.2-2'}}</h1>
     </div>
   </div>
   <div class="btn">
-    <button (click)="openDialog()">Book Room</button>
+    <button (click)="handleBooking()">Book Cabin</button>
   </div>
 </div>

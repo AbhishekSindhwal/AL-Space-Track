@@ -1,48 +1,3 @@
-<!-- service-form.component.html
- <h1>ADD SERVICE</h1>
-<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="serviceName">Service Name:</label>
-        <input id="serviceName" type="text" formControlName="serviceName">
-
-    </div>
-    <div>
-        <label for="serviceType">Service Type:</label>
-        <select id="serviceType" formControlName="serviceType">
-            <option value="value1">Transportation</option>
-            <option value="value2">Office Services</option>
-            <option value="value3">Refreshments</option>
-            <option value="value4">Storage</option>
-        </select>
-    </div>
-
-    <div>
-        <label for="desc">Description:</label>
-        <textarea id="desc" formControlName="desc"></textarea>
-    </div>
-
-    <div>
-        <label>Unit:</label>
-        <div formGroupName="unit">
-            <div class="radio" *ngFor="let unitOption of unitOptions">
-                <input class="radio-input" type="radio" [id]="unitOption" [value]="unitOption" formControlName="selectedUnit">
-                <label [for]="unitOption">{{unitOption}}</label>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <label for="price">Price:</label>
-        <input id="price" type="number" step="0.01" formControlName="price">
-    </div>
-
-    <div>
-        <label for="code">Code:</label>
-        <input id="code" type="text" formControlName="code">
-    </div>
-    <button type="submit" [disabled]="serviceForm.invalid">Submit</button>
-</form> -->
-
 <h1>ADD SERVICE</h1>
 <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
     <div>
@@ -52,7 +7,6 @@
             Service Name is required.
         </small>
     </div>
-
     <div>
         <label for="serviceType">Service Type:</label>
         <select id="serviceType" formControlName="serviceType">
@@ -65,7 +19,6 @@
             Service Type is required.
         </small>
     </div>
-
     <div>
         <label for="desc">Description:</label>
         <textarea id="desc" formControlName="desc"></textarea>
@@ -73,7 +26,6 @@
             Description is required.
         </small>
     </div>
-
     <div>
         <label>Unit:</label>
         <div formGroupName="unit">

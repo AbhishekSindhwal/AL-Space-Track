@@ -1,45 +1,47 @@
-.inner {
-    display: flex;
-    justify-content: space-between;
+/* Container Styles */
+.container {
+    margin: 0 30px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
 }
-.open,.dedicated{
-    margin: 5px;
-    padding: 10px;
-    border-radius: 14px;
-    background-color: #fff;
-}
+
+/* Heading Styles */
 h1 {
     text-align: center;
     color: #333;
     font-size: 2em;
     margin-bottom: 20px;
 }
-.container{
-    margin:  0px 30px;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 6px;
 }
-.dedicated{
+
+/* Inner Content Styles */
+.inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button Styles */
+.open, .dedicated {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Dedicated Button Styles */
+.dedicated {
     text-align: center;
-    cursor: pointer;
 }
-.btn{
+
+/* Additional Button Styles */
+.btn {
     cursor: pointer;
     margin-left: 20px;
-    
 }
-/* button{
-    margin-left: 20px;
-} */
-/* .button{
-    width: 80px;
-    background-color: red;
-    height: 40px;
-    border-radius: 4px;
-    font-size:medium;
-    border: 0;
-    color: white;
-    margin:0px 20px;
-    cursor: pointer;
-} */

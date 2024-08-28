@@ -47,11 +47,26 @@ export class ApiService {
   getCabinService(id:any):Observable<any>{
     return this.http.get<any>(`http://localhost:8000/api/v1/cabinService/${id}`)
   }
-
-
-  saveFormData(formData: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, formData).pipe(finalize(()=>{
-      this.getData(); 
-    })) ;
+  
+  // addBoooking(body:any):Observable<any>{
+  //   return this.http.post<any>('http://localhost:8000/api/v1/bookings',body)
+  // }
+  updateCabin(body:any,id:any):Observable<any>{
+    return this.http.patch<any>(`http://localhost:8000/api/v1/cabin/${id}`,body)
+  }
+  updateCabinTransaction(body:any):Observable<any>{
+    return this.http.patch<any>(`http://localhost:8000/api/v1/cabin/`,body)
+  }
+  addJobPosting(body:any):Observable<any>{
+    return this.http.post<any>(`http://localhost:8000/api/v1/jobposting`,body)
+  }
+  payment(body:any):Observable<any>{
+    return this.http.post<any>(`http://localhost:8000/api/v1/payment`,body)
+  }
+  addboooking(body:any):Observable<any>{
+    return this.http.post<any>('http://localhost:8000/api/v1/bookingTransaction',body)
+  }
+  updateBooking(body:any):Observable<any>{
+    return this.http.patch<any>('http://localhost:8000/api/v1/bookingTransaction',body)
   }
 }

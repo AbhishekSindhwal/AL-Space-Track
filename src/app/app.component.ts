@@ -7,21 +7,19 @@ import { ApiService } from './api.service';
   styleUrl: './app.component.css'
 })
 
-export class AppComponent   {
+export class AppComponent {
   title = 'spaceManagement';
-  sidebarActive=true;
-  openSpace=true;
-  openSpaceActive=true;
-  data:any;
+  sidebarActive = true;
+  openSpace = true;
+  openSpaceActive = true;
+  data: any;
 
-  
-
-  handleOpenSpace(){
-    this.openSpace=true;
-    this.openSpaceActive=true;
+  handleOpenSpace() {
+    this.openSpace = true;
+    this.openSpaceActive = true;
   }
-  handleCabinSpace(){
-    this.openSpace=false;
-    this.openSpaceActive=false;
+  handleCabinSpace() {
+    this.openSpace = false;
+    this.openSpaceActive = false;
   }
 }

@@ -24,6 +24,11 @@ h1 {
     text-align: center;
     cursor: pointer;
 }
+.heading{
+    display: flex;
+    justify-content: space-between;
+    margin:0 6px;
+}
 .btn{
     cursor: pointer;
     margin-left: 20px;
